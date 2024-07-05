@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 
 @Getter
 @Setter
@@ -31,4 +33,7 @@ public class Compte {
     @ManyToOne
     @JoinColumn(name = "id_user")
     private User user;
+
+    @OneToMany(mappedBy = "compte", cascade = CascadeType.ALL)
+    private List<Transaction> transactions;
 }

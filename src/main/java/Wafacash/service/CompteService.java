@@ -25,4 +25,12 @@ public class CompteService {
             System.out.println("user not existe");
         }
     }
+
+    public double getSolde(int id_compte) throws Exception {
+        Compte soldeCompte = compteRepository.findById(id_compte).
+                orElseThrow(()-> new Exception("compte non trouve"));
+
+        return soldeCompte.getSoldeInitial();
+
+    }
 }

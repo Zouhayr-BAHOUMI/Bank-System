@@ -1,6 +1,7 @@
 package Wafacash.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -33,5 +34,6 @@ public class Transaction {
 
     @ManyToOne
     @JoinColumn(name = "id_compte")
+    @JsonIgnoreProperties("transactions")
     private Compte compte;
 }

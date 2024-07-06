@@ -1,6 +1,7 @@
 package Wafacash.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,6 +33,7 @@ public class Compte {
 
     @ManyToOne
     @JoinColumn(name = "id_user")
+    @JsonIgnoreProperties("comptes")
     private User user;
 
     @OneToMany(mappedBy = "compte", cascade = CascadeType.ALL)

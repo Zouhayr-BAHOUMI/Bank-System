@@ -45,4 +45,14 @@ public class CompteService {
     public List<Transaction> getHistorique(int idCompte){
         return transactionRepository.findByCompte_IdCompte(idCompte);
     }
+
+    public void closeCompte(int idCompte, String messageFermeture) throws Exception {
+        Compte compteToClose = compteRepository.findById(idCompte).
+                orElseThrow(()-> new Exception("compte non trouve"));
+
+        System.out.println("jai fermer mon account pour " +messageFermeture);
+
+        compteToClose.setClosed(true);
+        compteRepository.save(compteToClose);
+    }
 }

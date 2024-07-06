@@ -31,6 +31,11 @@ public class Compte {
     @Column(name = "dateCreation", nullable = false)
     private String dateCreation;
 
+    @Column(name = "isClosed")
+    private boolean isClosed = false;
+
+
+
     @ManyToOne
     @JoinColumn(name = "id_user")
     @JsonIgnoreProperties("comptes")

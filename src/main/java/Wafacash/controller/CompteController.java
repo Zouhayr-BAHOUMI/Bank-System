@@ -37,4 +37,16 @@ public class CompteController {
         List<Transaction> transactions = compteService.getHistorique(idCompte);
         return ResponseEntity.ok(transactions);
     }
+
+    @PostMapping("/{idCompte}/close")
+    public ResponseEntity<String> fermerCompte(@PathVariable int idCompte, @RequestBody String messageFermeture){
+
+        try {
+            compteService.closeCompte(idCompte,messageFermeture);
+            return ResponseEntity.ok("Compte ferme avec succès");
+        }catch (Exception e){
+            return ResponseEntity.status(404).body(e.getMessage());
+        }
+
+    }
 }

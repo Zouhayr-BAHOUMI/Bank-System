@@ -37,6 +37,27 @@ public class CarteService {
         carteRepository.save(carte);
     }
 
+    public void getStatusCarte(int idCarte, boolean isActive){
+        Carte carteActivited = carteRepository.findById(idCarte)
+                .orElseThrow(() -> new RuntimeException("carte not found"));
+
+        if (isActive){
+            carteActivited.setCarteStatus(CarteStatus.active);
+        }else {
+            carteActivited.setCarteStatus(CarteStatus.desactive);
+        }
+        carteRepository.save(carteActivited);
+    }
+
+
+
+
+
+
+
+
+
+
     private String carteNumero(int startNum) {
         Random random = new Random();
         StringBuilder numeroCarte = new StringBuilder();

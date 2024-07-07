@@ -25,4 +25,30 @@ public class CarteController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("not created" + e.getMessage());
         }
     }
+
+    @PostMapping("/{idCarte}/activate")
+    public ResponseEntity<String> activeCarte(@PathVariable Integer idCarte){
+
+        try {
+            carteService.getStatusCarte(idCarte,true);
+            return ResponseEntity.ok("Carte activée avec succès.");
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("error in the activation.");
+        }
+
+    }
+
+    @PostMapping("/{idCarte}/desactivate")
+    public ResponseEntity<String> desactiveCarte(@PathVariable Integer idCarte){
+
+        try {
+            carteService.getStatusCarte(idCarte,false);
+            return ResponseEntity.ok("Carte desactivée avec succès.");
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("error in the desactivation.");
+        }
+
+    }
+
+
 }

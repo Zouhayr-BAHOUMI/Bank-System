@@ -23,7 +23,7 @@ public class TransactionService {
         if(transaction.getCompte() != null && compteRepository.existsById(transaction.getCompte().getIdCompte())){
             transactionRepository.save(transaction);
         }else {
-            System.out.println("user not existe");
+            System.out.println("compte not existe");
         }
     }
 }

@@ -35,7 +35,6 @@ public class Compte {
     private boolean isClosed = false;
 
 
-
     @ManyToOne
     @JoinColumn(name = "id_user")
     @JsonIgnoreProperties("comptes")
@@ -43,4 +42,7 @@ public class Compte {
 
     @OneToMany(mappedBy = "compte", cascade = CascadeType.ALL)
     private List<Transaction> transactions;
+
+    @OneToMany(mappedBy = "compte", cascade = CascadeType.ALL)
+    private List<Carte> cartes;
 }

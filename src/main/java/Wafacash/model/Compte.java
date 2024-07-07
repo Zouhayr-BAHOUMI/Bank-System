@@ -45,4 +45,10 @@ public class Compte {
 
     @OneToMany(mappedBy = "compte", cascade = CascadeType.ALL)
     private List<Carte> cartes;
+
+    @OneToMany(mappedBy = "compteDestination", cascade = CascadeType.ALL)
+    private List<Transfert> transfertsDestination;
+
+    @OneToMany(mappedBy = "compteSource", cascade = CascadeType.ALL)
+    private List<Transfert> transfertsSource;
 }

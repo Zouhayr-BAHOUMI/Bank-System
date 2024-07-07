@@ -50,6 +50,7 @@ public class CarteService {
         carteRepository.save(carteActivited);
     }
 
+    @Transactional
     public void blockCarte(int idCarte, String messageFermeture){
         Carte carteBlocked = carteRepository.findById(idCarte)
                 .orElseThrow(()-> new RuntimeException("carte not found"));

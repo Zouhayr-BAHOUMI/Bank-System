@@ -50,6 +50,10 @@ public class CompteService {
         Compte compteToClose = compteRepository.findById(idCompte).
                 orElseThrow(()-> new Exception("compte non trouve"));
 
+        if (compteToClose.getSoldeInitial() != 0) {
+            throw new Exception("Le solde du compte doit être zéro pour fermer le compte");
+        }
+
         System.out.println("jai fermer mon account pour " +messageFermeture);
 
         compteToClose.setClosed(true);

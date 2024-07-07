@@ -50,5 +50,17 @@ public class CarteController {
 
     }
 
+    @PostMapping("/{idCarte}/blocked")
+    public ResponseEntity<String> blockeCarte(@PathVariable Integer idCarte,@RequestBody String messageFermeture){
+
+        try {
+            carteService.blockCarte(idCarte,messageFermeture);
+            return ResponseEntity.ok("Carte blocked  avec succès.");
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("error in the blockage.");
+        }
+
+    }
+
 
 }

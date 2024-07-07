@@ -37,6 +37,7 @@ public class CarteService {
         carteRepository.save(carte);
     }
 
+    @Transactional
     public void getStatusCarte(int idCarte, boolean isActive){
         Carte carteActivited = carteRepository.findById(idCarte)
                 .orElseThrow(() -> new RuntimeException("carte not found"));
@@ -48,6 +49,18 @@ public class CarteService {
         }
         carteRepository.save(carteActivited);
     }
+
+    public void blockCarte(int idCarte, String messageFermeture){
+        Carte carteBlocked = carteRepository.findById(idCarte)
+                .orElseThrow(()-> new RuntimeException("carte not found"));
+
+        carteBlocked.setCarteStatus(CarteStatus.blocked);
+        System.out.println("jai block mon carte car " +messageFermeture);
+
+        carteRepository.save(carteBlocked);
+    }
+
+
 
 
 

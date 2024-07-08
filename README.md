@@ -11,7 +11,8 @@ Ce diagramme représente les interactions entre l'acteur projet du system bank.
 
 #### Diagramme de Classes
 
-![Capture d'écran 2024-07-02 122409](https://github.com/Zouhayr-BAHOUMI/Bank-System/assets/155726584/c3f45b10-eee9-41aa-8c8e-92127f73ed64)
+
+![Capture d'écran 2024-07-07 165914](https://github.com/Zouhayr-BAHOUMI/Bank-System/assets/155726584/77c12d80-a183-49aa-86a3-ff8dfcb6ac69)
 
 
 Ce diagramme présente les classes du système, leurs attributs, leurs méthodes et leurs relations.

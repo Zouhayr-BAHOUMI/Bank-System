@@ -18,7 +18,7 @@ public class TransactionController {
     private TransactionService transactionService;
 
     @PostMapping("/add")
-    private String ajouterTransaction(@RequestBody Transaction transaction){
+    private String ajouterTransaction(@RequestBody Transaction transaction) throws Exception {
         transactionService.addtTransaction(transaction);
         return "added successfully";
     }

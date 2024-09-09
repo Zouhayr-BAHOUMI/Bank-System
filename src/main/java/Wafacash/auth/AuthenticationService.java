@@ -14,6 +14,7 @@ import Wafacash.model.User;
 @Service
 @RequiredArgsConstructor
 public class AuthenticationService {
+
     private final UserRepository userRepository;
 
     private final JwtService jwtService;
